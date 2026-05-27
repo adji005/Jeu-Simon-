@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0D1B2A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s;
+}
+
+body.perdu {
+  background-color: #2A0808;
+}
+
+.entete {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #F0E6D3;
+  margin-bottom: 15px;
+}
+
+#statut {
+  font-size: 0.85rem;
+  color: #6B82A0;
+  text-transform: uppercase;
+}
+
+#statut.simon  { color: #6B82A0; }
+#statut.joueur { color: #C99040; }
+#statut.bravo  { color: #4AB87A; }
+#statut.perdu  { color: #C04040; }
+
+.conteneur {
+  display: grid;
+  grid-template-columns: 185px 185px;
+  grid-template-rows: 185px 185px;
+  gap: 24px;
+}
+
+.tuile {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: filter 0.1s, transform 0.1s, opacity 0.2s;
+}
+
+.tuile:hover {
+  filter: brightness(1.2);
+  transform: scale(1.03);
+}
+
+.tuile.bloquee {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.rouge { background-color: #E02020; }
+.bleu  { background-color: #1040D0; }
+.jaune { background-color: #E0A020; }
+.vert  { background-color: #18A050; }
+
+@keyframes flash {
+  0%   { filter: brightness(1); }
+  40%  { filter: brightness(2.8); }
+  100% { filter: brightness(1); }
+}
+
+.illumine {
+  animation: flash 0.45s ease;
+}
+
+.actif {
+  filter: brightness(2.2) !important;
+  transform: scale(0.91) !important;
+  transition: none !important;
+}
